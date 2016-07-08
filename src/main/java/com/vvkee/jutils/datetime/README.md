@@ -1,1 +1,3 @@
 对时间的操作强烈建议使用joda-time
+
+也可以使用common-lang下的DateUtil
