@@ -1,8 +1,13 @@
 package com.vvkee.jutils.file;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.ByteBuffer;
+import java.nio.channels.FileChannel;
 import java.security.MessageDigest;
 
 import org.apache.commons.codec.binary.Hex;
@@ -44,6 +49,60 @@ public class FileUtil {
 			}
 		}
 		return null;
+	}
+
+	/**
+	 * 将文件target合并到文件source中
+	 * 
+	 * @param source
+	 * @param target
+	 * @throws Exception
+	 */
+	public static void merge(String source, String target) throws Exception {
+		merge(new File(source), new File(target));
+	}
+
+	/**
+	 * 将文件target合并到文件source中
+	 * 
+	 * @param source
+	 * @param target
+	 * @throws Exception
+	 */
+	@SuppressWarnings("resource")
+	public static void merge(File source, File target) throws Exception {
+		int BUFSIZE = 1024 * 8;
+		boolean newFile = false;
+		if (!source.exists()) {
+			newFile = true;
+			source.createNewFile();
+		}
+		if (!target.exists()) {
+			return;
+		}
+
+		FileChannel sourceChannel = null;
+		FileChannel targetChannel = null;
+		if (!newFile) {
+			// 如果不是新文件，那么需要换行
+			System.out.println("aaa");
+			FileWriter fw = new FileWriter(source, true);
+			BufferedWriter bw = new BufferedWriter(fw);
+			bw.newLine();
+			bw.flush();
+			fw.close();
+			bw.close();
+		}
+		sourceChannel = new FileOutputStream(source, true).getChannel();
+		targetChannel = new FileInputStream(target).getChannel();
+		ByteBuffer bb = ByteBuffer.allocate(BUFSIZE);
+		while (targetChannel.read(bb) != -1) {
+			bb.flip();
+			sourceChannel.write(bb);
+			bb.clear();
+		}
+		sourceChannel.close();
+		targetChannel.close();
 	}
 
 }
