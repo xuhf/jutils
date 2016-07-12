@@ -11,6 +11,7 @@ import java.nio.channels.FileChannel;
 import java.security.MessageDigest;
 
 import org.apache.commons.codec.binary.Hex;
+import org.apache.commons.io.FileUtils;
 
 /**
  * 文件操作工具类
@@ -18,7 +19,7 @@ import org.apache.commons.codec.binary.Hex;
  * @author xuhf
  *
  */
-public class FileUtil {
+public class FileUtil extends FileUtils {
 
 	/**
 	 * 获取文件MD5值<br/>
@@ -83,9 +84,9 @@ public class FileUtil {
 
 		FileChannel sourceChannel = null;
 		FileChannel targetChannel = null;
+
 		if (!newFile) {
 			// 如果不是新文件，那么需要换行
-			System.out.println("aaa");
 			FileWriter fw = new FileWriter(source, true);
 			BufferedWriter bw = new BufferedWriter(fw);
 			bw.newLine();
@@ -104,5 +105,4 @@ public class FileUtil {
 		sourceChannel.close();
 		targetChannel.close();
 	}
-
 }
