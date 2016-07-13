@@ -2,11 +2,11 @@ package com.vvkee.jutils.enum0;
 
 public enum ApplicationEnum {
 
-	NETWORK("固网"), THIRD("三期"), URL("URL");
+	GREEN("绿色"), RED("红色"), YELLOW("黄色");
 
 	private String display;
 
-	ApplicationEnum(String display) {
+	private ApplicationEnum(String display) {
 		this.display = display;
 	}
 
