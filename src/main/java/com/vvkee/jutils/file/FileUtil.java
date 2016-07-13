@@ -9,6 +9,8 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 import java.security.MessageDigest;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipOutputStream;
 
 import org.apache.commons.codec.binary.Hex;
 import org.apache.commons.io.FileUtils;
@@ -104,5 +106,32 @@ public class FileUtil extends FileUtils {
 		}
 		sourceChannel.close();
 		targetChannel.close();
+	}
+
+	/**
+	 * Java 创建ZIP示例
+	 * 
+	 * @throws Exception
+	 */
+	public static void zip() throws Exception {
+		String dir = "E:\\";
+		String[] files = { "E:\\ll_a.txt", "E:\\ll_b.txt", "E:\\ll_c.txt", "E:\\lb_a.txt", "E:\\lb_b.txt",
+				"E:\\lb_c.txt" };
+		File zipFile = new File(dir + File.separator + "aa.zip");
+		ZipOutputStream zos = new ZipOutputStream(new FileOutputStream(zipFile));
+		for (String file : files) {
+			File f = new File(file);
+			String zipDir = f.getName().substring(0, f.getName().indexOf("_"));
+			// 那个在压缩文件里，zipDir就是目录
+			zos.putNextEntry(new ZipEntry(zipDir + File.separator + f.getName()));
+			FileInputStream in = new FileInputStream(file);
+			int b;
+			while ((b = in.read()) != -1) {
+				zos.write(b);
+			}
+			in.close();
+		}
+		zos.closeEntry();
+		zos.close();
 	}
 }
