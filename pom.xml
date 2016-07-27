@@ -78,6 +78,13 @@
 			<version>2.9.4</version>
 		</dependency>
 
+		<!-- FTP 下载 -->
+		<dependency>
+			<groupId>commons-net</groupId>
+			<artifactId>commons-net</artifactId>
+			<version>3.3</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
