@@ -1,4 +1,4 @@
-package com.vvkee.jutils.enum0;
+package com.vvkee.jutils.enums;
 
 public enum ApplicationEnum {
 

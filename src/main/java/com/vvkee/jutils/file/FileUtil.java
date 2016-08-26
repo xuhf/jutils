@@ -109,6 +109,20 @@ public class FileUtil extends FileUtils {
 	}
 
 	/**
+	 * 将多个文件合并到source里
+	 * 
+	 * @param source
+	 * @param target
+	 */
+	public void merge(File source, File... target) throws Exception {
+		if (!source.exists()) {
+			source.createNewFile();
+		}
+		
+		
+	}
+
+	/**
 	 * Java 创建ZIP示例
 	 * 
 	 * @throws Exception
