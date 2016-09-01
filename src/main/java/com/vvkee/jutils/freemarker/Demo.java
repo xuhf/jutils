@@ -17,7 +17,7 @@ import freemarker.template.Template;
 public class Demo {
 
 	public static void main(String[] args) throws Exception {
-		String result = getEmailContext("xuhf");
+		String result = getEmailContext("hudor");
 		System.out.println(result);
 	}
 
