@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tasks>
+	<task>
+		<display>显示时间</display>
+		<name>DISPLAY_DATE</name>
+		<clazz>com.vvkee.jutils.quartz.task.DisplayDateTask</clazz>
+		<method>run</method>
+		<!-- 每30秒执行一次 -->
+		<crontab>0/30 * * * * ?</crontab>
+		<isContainerInit>true</isContainerInit>
+		<isConcurrent>false</isConcurrent>
+	</task>
+	<task>
+		<display>打印月份</display>
+		<name>DISPLAY_NAME_AND_DATE</name>
+		<clazz>com.vvkee.jutils.quartz.task.DisplayNameAndDateTask</clazz>
+		<method>run</method>
+		<!-- 每30秒执行一次 -->
+		<crontab>0/10 * * * * ?</crontab>
+		<isContainerInit>true</isContainerInit>
+		<isConcurrent>false</isConcurrent>
+	</task>
+</tasks>  
