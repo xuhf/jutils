@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<users>
+	<user>
+		<name>test</name>
+		<password>123456</password>
+		<company>Baidu</company>
+		<category>0</category>
+		<whiteIps />
+		<interfaces />
+		<interfacesLimit>11111</interfacesLimit>
+		<charge>charge+1</charge>
+		<isLimitLog>0</isLimitLog>
+		<isLimitConcurrency />
+	</user>
+	<user>
+		<name>andy</name>
+		<password>andy123</password>
+		<company>member_1</company>
+		<category>1</category>
+		<whiteIps />
+		<interfaces>12,3</interfaces>
+		<interfacesLimit />
+		<charge>charge2</charge>
+		<isLimitLog>0</isLimitLog>
+		<isLimitConcurrency />
+	</user>
+</users>

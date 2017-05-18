@@ -16,7 +16,7 @@ public class DES {
 	/**
 	 * DES算法密钥
 	 */
-	private static final String _KEY = "123456789";
+	private static final String _KEY = "88404904DEF3A96C03B6399E9216D406";
 
 	static {
 		try {
@@ -24,13 +24,6 @@ public class DES {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	}
-
-	public static void main(String[] args) {
-		String data = "13895746710";
-		String e = encrypt(data);
-		System.out.println(e);
-		System.out.println(decrypt(e));
 	}
 
 	/**
@@ -74,5 +67,9 @@ public class DES {
 			e.printStackTrace();
 		}
 		return null;
+	}
+	
+	public static void main(String[] args) {
+		System.out.println();
 	}
 }

@@ -12,20 +12,7 @@ import com.google.common.base.Strings;
 
 public class AES {
 
-	private static final String KEY = "123456";
-
-	public static void main(String[] args) throws Exception {
-		String content = "我爱你";
-		System.out.println("加密前：" + content);
-
-		System.out.println("加密密钥和解密密钥：" + KEY);
-
-		String encrypt = encrypt(content, KEY);
-		System.out.println("加密后：" + encrypt);
-
-		String decrypt = decrypt(encrypt, KEY);
-		System.out.println("解密后：" + decrypt);
-	}
+	private static final String KEY = "88404904DEF3A96C03B6399E9216D406";
 
 	public static String encrypt(String content) throws Exception {
 		return encrypt(content, KEY);
