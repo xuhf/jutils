@@ -16,13 +16,12 @@ import org.apache.commons.codec.digest.DigestUtils;
  */
 public class Sign {
 
-	private static final String KEY = "asdfasdf";
 	private static final String CHARSET = "UTF-8";
 
-	public static String sign(Map<String, String> parameters) {
+	public static String sign(String key, Map<String, String> parameters) {
 		Map<String, String> filterParameters = filterParameters(parameters);
 		String link = linkParameters(filterParameters);
-		String mysign = MD5.sign(link, KEY, CHARSET);
+		String mysign = MD5.sign(link, key, CHARSET);
 		return mysign;
 	}
 
@@ -123,13 +122,5 @@ public class Sign {
 				throw new RuntimeException("MD5签名过程中出现错误,指定的编码集不对,您目前指定的编码集是:" + charset);
 			}
 		}
-	}
-
-	public static void main(String[] args) {
-		Map<String, String> p = new HashMap<String, String>();
-		p.put("user", "test");
-		p.put("id", "13581691044");
-		String sign = sign(p);
-		System.out.println(sign);
 	}
 }
